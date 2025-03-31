@@ -1,7 +1,9 @@
 import { Stack } from 'expo-router'
 
 const SavedLayout: React.FC = () => {
-  return <Stack />
+  return (
+      <Stack />
+  )
 }
 
 export default SavedLayout

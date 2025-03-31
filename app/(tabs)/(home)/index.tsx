@@ -2,12 +2,13 @@ import { productItem } from '@/constants/data'
 import { useSaved } from '@/contexts/useSaved'
 import { Link } from 'expo-router'
 import { HeartIcon } from 'lucide-react-native'
-import { Image, Text, TouchableOpacity, View } from 'react-native'
+import { Image, ScrollView, Text, TouchableOpacity, View } from 'react-native'
 
 const Index: React.FC = () => {
   const { saved, addToSaved, removeFromSaved } = useSaved()
   return (
-      <View className="flex flex-col px-4 py-8 gap-8 h-screen overflow-auto">
+    <ScrollView>
+      <View className="flex flex-col px-4 py-8 gap-8 h-screen">
         <Text className="text-2xl font-bold text-gray-800">For You</Text>
         <View className="grid grid-cols-2 gap-4">
           {productItem.product_items.map((item, idx) => (
@@ -53,8 +54,7 @@ const Index: React.FC = () => {
                   shadowOpacity: 0.25,
                   shadowRadius: 3.84,
                   elevation: 5,
-                }}
-              >
+                }}>
                 <HeartIcon
                   color={saved.includes(item.id.toString()) ? 'red' : 'black'}
                   fill={saved.includes(item.id.toString()) ? 'red' : 'none'}
@@ -65,6 +65,7 @@ const Index: React.FC = () => {
           ))}
         </View>
       </View>
+    </ScrollView>
   )
 }
 export default Index
